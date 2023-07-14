@@ -1,0 +1,39 @@
+.header {
+    background: #0D0D0D;
+    width: auto;
+    height: 200px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.divTitle {
+    display: flex;
+    align-items: center;
+}
+
+.rocket {
+    width: 22px;
+    height: 36px;
+    flex-shrink: 0;
+    margin: 0px 12px -5px;
+}
+
+.title1 {
+    color: var(--blue, #4EA8DE);
+    font-family: Inter;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+}
+
+.title2 {
+    color: var(--purple-dark, #5E60CE);
+    font-family: Inter;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+}
