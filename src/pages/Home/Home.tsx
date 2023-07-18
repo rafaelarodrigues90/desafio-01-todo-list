@@ -2,7 +2,6 @@ import { Header } from "../../components/Header/Header";
 import { Input } from "../../components/Input/Input";
 import { TodoList } from "../../components/TodoList/TodoList";
 import { Todo } from "../../models";
-// import styles from "./styles.module.css";
 import { useState } from "react";
 
 export function Home() {
