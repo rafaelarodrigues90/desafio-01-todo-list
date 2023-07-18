@@ -25,10 +25,10 @@ export function Input({ onAddTask }: InputProps) {
           value={newTask}
           onChange={(e) => setNewTask(e.target.value)}
         />
-        <button className={styles.button} onClick={handleAddTask}>
+        <span className={styles.button} onClick={handleAddTask}>
           <strong className={styles.buttonText}>Criar</strong>
           <img src={PlusIcon} alt="Plus Icon" />
-        </button>
+        </span>
       </div>
     </div>
   );

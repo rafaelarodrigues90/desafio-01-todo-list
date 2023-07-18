@@ -3,8 +3,10 @@ import { Todo } from "../../models";
 import { Info } from "../Info/Info";
 import styles from "./styles.module.css";
 import TrashIcon from "../../assets/trashIcon.svg";
+import TrashIconHover from "../../assets/trashIconHover.svg";
 import RadioButton from "../../assets/radioButton.svg";
 import RadioButtonChecked from "../../assets/radioButtonChecked.svg";
+import RadioButtonHover from "../../assets/radioButtonHover.svg";
 
 interface TodoListProps {
   tasks: Todo[];
@@ -13,6 +15,8 @@ interface TodoListProps {
 
 export function TodoList({ tasks, setTasks }: TodoListProps) {
   const [completedCount, setCompletedCount] = useState<number>(0);
+  const [hoveredButtonId, setHoveredButtonId] = useState<number | null>(null);
+  const [hoveredTrashId, setHoveredTrashId] = useState<number | null>(null);
 
   const handleCompleteTask = (taskId: number) => {
     const updatedTasks = tasks.map((task) =>
@@ -38,11 +42,17 @@ export function TodoList({ tasks, setTasks }: TodoListProps) {
             <span
               className={styles.radioButton}
               onClick={() => handleCompleteTask(task.id)}
+              onMouseEnter={() => setHoveredButtonId(task.id)}
+              onMouseLeave={() => setHoveredButtonId(null)}
             >
               {task.completed ? (
                 <img src={RadioButtonChecked} />
               ) : (
-                <img src={RadioButton} />
+                <img
+                  src={
+                    hoveredButtonId === task.id ? RadioButtonHover : RadioButton
+                  }
+                />
               )}
             </span>
             <div
@@ -53,8 +63,13 @@ export function TodoList({ tasks, setTasks }: TodoListProps) {
             <span
               className={styles.trashButton}
               onClick={() => handleRemoveTask(task.id)}
+              onMouseEnter={() => setHoveredTrashId(task.id)}
+              onMouseLeave={() => setHoveredTrashId(null)}
             >
-              <img className={styles.trashIcon} src={TrashIcon} />
+              <img
+                className={styles.trashIcon}
+                src={hoveredTrashId === task.id ? TrashIconHover : TrashIcon}
+              />
             </span>
           </div>
         ))}

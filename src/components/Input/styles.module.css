@@ -38,6 +38,10 @@
   color: var(--gray-100);
 }
 
+.button:hover {
+  background: var(--blue);
+}
+
 .buttonText {
   font-size: 14px;
   font-weight: 700;
