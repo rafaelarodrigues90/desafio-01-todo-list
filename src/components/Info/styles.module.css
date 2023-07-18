@@ -1,25 +1,21 @@
 .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    align-self: stretch;
-    margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-self: stretch;
+  margin-bottom: 24px;
 }
 
 .tarefas {
-    color: var(--blue, #4EA8DE);
-    font-family: Inter;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
+  color: var(--blue);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: normal;
 }
 
 .concluidas {
-    color: var(--purple, #8284FA);
-    font-family: Inter;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
+  color: var(--purple);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: normal;
 }

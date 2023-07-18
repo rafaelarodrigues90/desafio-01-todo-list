@@ -1,11 +1,17 @@
-import styles from './styles.module.css';
+import styles from "./styles.module.css";
 
-export function Info () {
-    return (
-        // TODO: contadores
-        <div className={styles.container}>
-            <strong className={styles.tarefas}>Tarefas criadas</strong>
-            <strong className={styles.concluidas}>Concluídas</strong>
-        </div> 
-    )
+interface InfoProps {
+  totalTasks: number;
+  completedTasks: number;
+}
+
+export function Info({ totalTasks, completedTasks }: InfoProps) {
+  return (
+    <div className={styles.container}>
+      <strong className={styles.tarefas}>Tarefas criadas: {totalTasks}</strong>
+      <strong className={styles.concluidas}>
+        Concluídas: {completedTasks}
+      </strong>
+    </div>
+  );
 }
