@@ -7,6 +7,7 @@ import TrashIconHover from "../../assets/trashIconHover.svg";
 import RadioButton from "../../assets/radioButton.svg";
 import RadioButtonChecked from "../../assets/radioButtonChecked.svg";
 import RadioButtonHover from "../../assets/radioButtonHover.svg";
+import { EmptyList } from "../EmptyList/EmptyList";
 
 interface TodoListProps {
   tasks: Todo[];
@@ -37,42 +38,48 @@ export function TodoList({ tasks, setTasks }: TodoListProps) {
       <div className={styles.todoListContainer}>
         <Info totalTasks={tasks.length} completedTasks={completedCount} />
 
-        {tasks.map((task) => (
-          <div key={task.id} className={styles.taskContainer}>
-            <span
-              className={styles.radioButton}
-              onClick={() => handleCompleteTask(task.id)}
-              onMouseEnter={() => setHoveredButtonId(task.id)}
-              onMouseLeave={() => setHoveredButtonId(null)}
-            >
-              {task.completed ? (
-                <img src={RadioButtonChecked} />
-              ) : (
+        {!tasks.length ? (
+          <EmptyList />
+        ) : (
+          tasks.map((task) => (
+            <div key={task.id} className={styles.taskContainer}>
+              <span
+                className={styles.radioButton}
+                onClick={() => handleCompleteTask(task.id)}
+                onMouseEnter={() => setHoveredButtonId(task.id)}
+                onMouseLeave={() => setHoveredButtonId(null)}
+              >
+                {task.completed ? (
+                  <img src={RadioButtonChecked} />
+                ) : (
+                  <img
+                    src={
+                      hoveredButtonId === task.id
+                        ? RadioButtonHover
+                        : RadioButton
+                    }
+                  />
+                )}
+              </span>
+              <div
+                className={task.completed ? styles.taskCompleted : styles.task}
+              >
+                {task.description}
+              </div>
+              <span
+                className={styles.trashButton}
+                onClick={() => handleRemoveTask(task.id)}
+                onMouseEnter={() => setHoveredTrashId(task.id)}
+                onMouseLeave={() => setHoveredTrashId(null)}
+              >
                 <img
-                  src={
-                    hoveredButtonId === task.id ? RadioButtonHover : RadioButton
-                  }
+                  className={styles.trashIcon}
+                  src={hoveredTrashId === task.id ? TrashIconHover : TrashIcon}
                 />
-              )}
-            </span>
-            <div
-              className={task.completed ? styles.taskCompleted : styles.task}
-            >
-              {task.description}
+              </span>
             </div>
-            <span
-              className={styles.trashButton}
-              onClick={() => handleRemoveTask(task.id)}
-              onMouseEnter={() => setHoveredTrashId(task.id)}
-              onMouseLeave={() => setHoveredTrashId(null)}
-            >
-              <img
-                className={styles.trashIcon}
-                src={hoveredTrashId === task.id ? TrashIconHover : TrashIcon}
-              />
-            </span>
-          </div>
-        ))}
+          ))
+        )}
       </div>
     </div>
   );
