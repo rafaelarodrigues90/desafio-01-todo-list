@@ -1,5 +1,5 @@
 .container {
-  width: 638px;
+  width: 736px;
   height: 54px;
   margin: auto;
   margin-top: -25px;
@@ -36,6 +36,8 @@
   background: var(--blue-dark);
   box-shadow: none;
   color: var(--gray-100);
+  width: 90px;
+  height: 52px;
 }
 
 .button:hover {
