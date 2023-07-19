@@ -16,7 +16,7 @@ export function Info({ totalTasks, completedTasks }: InfoProps) {
       <div className={styles.counterContainer}>
         <div className={styles.completedTasks}>Concluídas</div>
         <div className={styles.counter}>
-          {completedTasks} de {totalTasks}
+          {!totalTasks ? totalTasks : `${completedTasks} de ${totalTasks}`}
         </div>
       </div>
     </div>
