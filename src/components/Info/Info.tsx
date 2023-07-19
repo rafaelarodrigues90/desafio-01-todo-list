@@ -8,10 +8,17 @@ interface InfoProps {
 export function Info({ totalTasks, completedTasks }: InfoProps) {
   return (
     <div className={styles.container}>
-      <strong className={styles.tarefas}>Tarefas criadas: {totalTasks}</strong>
-      <strong className={styles.concluidas}>
-        Concluídas: {completedTasks}
-      </strong>
+      <div className={styles.counterContainer}>
+        <div className={styles.totalTasks}>Tarefas criadas</div>
+        <div className={styles.counter}>{totalTasks}</div>
+      </div>
+
+      <div className={styles.counterContainer}>
+        <div className={styles.completedTasks}>Concluídas</div>
+        <div className={styles.counter}>
+          {completedTasks} de {totalTasks}
+        </div>
+      </div>
     </div>
   );
 }

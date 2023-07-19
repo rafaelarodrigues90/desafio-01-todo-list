@@ -6,16 +6,35 @@
   margin-bottom: 24px;
 }
 
-.tarefas {
+.counterContainer {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+}
+
+.totalTasks {
+  display: flex;
   color: var(--blue);
   font-size: 14px;
   font-weight: 700;
   line-height: normal;
 }
 
-.concluidas {
+.completedTasks {
+  display: flex;
   color: var(--purple);
   font-size: 14px;
   font-weight: 700;
   line-height: normal;
+}
+
+.counter {
+  padding: 2px 8px;
+  gap: 10px;
+  border-radius: 999px;
+  background: var(--gray-400);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--gray-200);
+  margin-left: 8px;
 }
